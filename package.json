@@ -1,0 +1,33 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "This is a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shannonjburris/team_profile_generator.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "test"
+  ],
+  "author": "Shannon Burris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shannonjburris/team_profile_generator/issues"
+  },
+  "homepage": "https://github.com/shannonjburris/team_profile_generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

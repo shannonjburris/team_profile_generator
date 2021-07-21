@@ -3,8 +3,7 @@ const Employee = require("../lib/Employee");
 
 test("Instantiantes new Employee instance", () => {
     const e = new Employee();
-    expect(type(e).toBe("obejct"));
-    expect(type(e.name).toBe("obejct"));
+    expect(typeof(e)).toBe("object");
 });
 
 test("Can set name with constructor", () => {

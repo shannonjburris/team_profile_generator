@@ -2,14 +2,15 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generateHTML = require("./lib/htmlTemplate");
+const generateHTML = require("./src/htmlTemplate");
 //require our packages
 const inquirer = require('inquirer');
 const fs = require('fs');
+// empty array to push emplyees to
 let team = [];
 
 
-
+// function that holds questions 
 init = () => {
     inquirer
         .prompt([
@@ -34,7 +35,7 @@ init = () => {
                 name: 'email',
                 message: 'What is their email?'
             }
-
+            // create emplyee depending on what they answered on the first question
         ]).then((answers) => {
             switch (answers.title) {
                 case 'Manager':
@@ -52,6 +53,7 @@ init = () => {
         });
 }
 
+// create manager with info passed in
 createManager = (info) => {
 
     inquirer.prompt([
@@ -60,30 +62,33 @@ createManager = (info) => {
             name: 'officeNumber',
             message: 'What is their office number?'
         }
+        // create object "manager" based on user input
     ]).then((officeNumber) => {
         const manager = new Manager(info.name, info.id, info.email, officeNumber.officeNumber);
         team.push(manager);
         addEmployee();
-        //pass employee information to html
     })
 }
 
+// create engineer with info passed in
 createEngineer = (info) => {
-    // create constructor
+    
     inquirer.prompt([
         {
             type: 'input',
             name: 'github',
             message: 'What is their GitHub?'
         }
+        // create object "engineer" based on user input
     ]).then((github) => {
         const engineer = new Engineer(info.name, info.id, info.email, github.github);
         team.push(engineer);
         addEmployee();
-        //pass employee information to html
+
     })
 }
 
+// create intern with info passed in
 createIntern = (info) => {// create constructor
     inquirer.prompt([
         {
@@ -91,6 +96,7 @@ createIntern = (info) => {// create constructor
             name: 'school',
             message: 'What school do they attend?'
         }
+        // create object "intern" based on user input
     ]).then((school) => {
         const intern = new Intern(info.name, info.id, info.email, school.school);
         team.push(intern);
@@ -99,6 +105,7 @@ createIntern = (info) => {// create constructor
     })
 }
 
+// if they want to add another run the init function again
 addEmployee = () => {
     inquirer.prompt([
         {
@@ -112,10 +119,10 @@ addEmployee = () => {
         if (answer.addEmployee === "Yes") {
             init();
         }
+// if they dont add any other employees then write from team array
         else {
-            // console.log(team);
             const htmlPageContent = generateHTML(team);
-            fs.writeFile('index.html', htmlPageContent, (err) =>
+            fs.writeFile('./dist/index.html', htmlPageContent, (err) =>
                 err ? console.log(err) : console.log('Successfully created index.html!')
             );
         }

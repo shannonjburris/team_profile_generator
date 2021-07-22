@@ -1,9 +1,9 @@
 const generateHTML = (team) => {
-    console.log(team);
-
+   
+// map through and if they have a constructor name of manager then return html
     let cards = team.map((employee) => {
         if (employee.constructor.name === "Manager") {
-            return `<div class="card col-4">
+            return `<div class="card col-4" >
                         <h3>${employee.name}</h3>
                         <h4>Manager <i class="fas fa-mug-hot"></i> </h4>
                         <ul>
@@ -13,6 +13,7 @@ const generateHTML = (team) => {
                         </ul>
                     </div>`
         }
+    // map through and if they have a constructor name of engineer then return html
         else if (employee.constructor.name === "Engineer") {
             return `<div class="card col-4">
                         <h3>${employee.name}</h3>
@@ -24,6 +25,7 @@ const generateHTML = (team) => {
                         </ul>
                     </div>`
         }
+    // map through and if they have a constructor name of intern then return html
         else if (employee.constructor.name === "Intern") {
             return `<div class="card col-4">
                         <h3>${employee.name}</h3>
@@ -37,6 +39,7 @@ const generateHTML = (team) => {
         }
     })
 
+    // create HTML output to pass back to return
     const html = `<!DOCTYPE html>
     <html lang="en">
     
@@ -46,6 +49,7 @@ const generateHTML = (team) => {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+        <link rel="stylesheet" href="./styles.css"> 
         <title>Document</title>
     </head>
     

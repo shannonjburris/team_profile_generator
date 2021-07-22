@@ -6,5 +6,5 @@ This application utilizes
 
  <a href="https://github.com/shannonjburris" target="_blank">Link to Repo</a>
  <br>
- <a href="https://www.loom.com/share/b178c7509a0f43a2b89a026ddc5999ca" target="_blank">Link to video</a>
+ <a href="https://www.loom.com/share/ce6a94a2d087443e8b1ecb967d46273b" target="_blank">Link to video</a>
  <br>
